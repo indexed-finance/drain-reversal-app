@@ -1,0 +1,194 @@
+[
+  {
+    "inputs": [],
+    "name": "burnWETH",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cc10",
+    "outputs": [
+      {
+        "internalType": "contract IRestrictedIndexPool",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cc10Data",
+    "outputs": [
+      {
+        "internalType": "uint96",
+        "name": "supply",
+        "type": "uint96"
+      },
+      {
+        "internalType": "uint72",
+        "name": "ethBalance",
+        "type": "uint72"
+      },
+      {
+        "internalType": "uint88",
+        "name": "poolBalance",
+        "type": "uint88"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cc10LP",
+    "outputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "defi5",
+    "outputs": [
+      {
+        "internalType": "contract IRestrictedIndexPool",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "defi5Data",
+    "outputs": [
+      {
+        "internalType": "uint96",
+        "name": "supply",
+        "type": "uint96"
+      },
+      {
+        "internalType": "uint72",
+        "name": "ethBalance",
+        "type": "uint72"
+      },
+      {
+        "internalType": "uint88",
+        "name": "poolBalance",
+        "type": "uint88"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "defi5LP",
+    "outputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "fff",
+    "outputs": [
+      {
+        "internalType": "contract IRestrictedIndexPool",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "fffData",
+    "outputs": [
+      {
+        "internalType": "uint96",
+        "name": "supply",
+        "type": "uint96"
+      },
+      {
+        "internalType": "uint72",
+        "name": "ethBalance",
+        "type": "uint72"
+      },
+      {
+        "internalType": "uint88",
+        "name": "poolBalance",
+        "type": "uint88"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "fffLP",
+    "outputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "redeemCC10LP",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "redeemDEFI5LP",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "redeemFFFLP",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "weth",
+    "outputs": [
+      {
+        "internalType": "contract IWETH",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "receive"
+  }
+]
