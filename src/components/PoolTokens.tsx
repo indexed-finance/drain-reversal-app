@@ -1,7 +1,6 @@
 import { formatEther } from "ethers/lib/utils";
 import { useMemo } from "react";
-import { useAccount, useContractWrite } from "wagmi";
-import { CC10, DEFI5, FFF, MULTI_TOKEN_STAKING, TOKEN_SYMBOLS, UNISWAP_PAIRS } from "../config";
+import { CC10, DEFI5, FFF, TOKEN_SYMBOLS, UNISWAP_PAIRS } from "../config";
 import { useRedeemableAmounts, useRedeemActions, useUniBurnAllowance } from "../hooks/pools";
 import { TokenAmounts } from "../types";
 
