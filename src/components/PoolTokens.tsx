@@ -105,8 +105,9 @@ function PoolTokenAmounts({
 export function DisplayPoolStuff({ address }: { address: string }) {
     const { data, isError, isLoading, error } = useRedeemableAmounts(address);
     if (isError) {
+        console.log(error)
         return <div>
-            <h1>Error: {error?.message}</h1>
+            <h1>Error loading data (check console) </h1>
         </div>
     }
     if (isLoading) {
