@@ -107,7 +107,7 @@ export function DisplayPoolStuff({ address }: { address: string }) {
     if (isError) {
         console.log(error)
         return <div>
-            <h1>Error loading data (check console) </h1>
+            <b>Error loading data (check console) </b>
         </div>
     }
     if (isLoading) {

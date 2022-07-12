@@ -7,6 +7,7 @@ import {
 import { DisplayPoolStuff } from './PoolTokens'
 
 import Button from '../elements/button'
+import List from '../elements/list'
 
   export function Profile() {
     const { address, connector, isConnected } = useAccount()
@@ -17,32 +18,31 @@ import Button from '../elements/button'
 
     if (isConnected && address) {
       return (
-        <div>
-          <div>{ensName ? `${ensName} (${address})` : address}</div>
-          <div>Connected to {connector?.name}</div>
-          <button onClick={() => disconnect()}>Disconnect</button>
+        <List>
+          <h3>{ensName ? `${ensName} (${address})` : address}</h3>
+          <span>Connected to {connector?.name}</span>
+          <Button onClick={() => disconnect()}>Disconnect</Button>
           <DisplayPoolStuff address={address} />
-        </div>
+        </List>
       )
     }
 
     return (
-      <div>
+      <List>
         {connectors.map((connector) => (
           <Button
-            disabled={!connector.ready}
-            key={connector.id}
-            onClick={() => connect({ connector })}
-          >
-            {connector.name}
-            {!connector.ready && ' (unsupported)'}
-            {isLoading &&
-              connector.id === pendingConnector?.id &&
-              ' (connecting)'}
-          </Button>
+              disabled={!connector.ready}
+              key={connector.id}
+              onClick={() => connect({ connector })}
+              width='10em'
+            >
+              {connector.name}
+              {!connector.ready && ' (unsupported)'}
+              {isLoading &&
+                connector.id === pendingConnector?.id &&
+                ' (connecting)'}
+            </Button>
         ))}
-
-        {error && <div>{error.message}</div>}
-      </div>
+      </List>
     )
   }

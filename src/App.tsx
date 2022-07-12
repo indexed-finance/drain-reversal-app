@@ -16,9 +16,10 @@ function App() {
     <ThemeProvider theme={themes.light}>
       <WagmiConfig client={client}>
         <Container
-          margin='calc(20vh - 5em) 25%'
+          margin='calc(20vh - 5em) auto'
           height='calc(50vh - 10em)'
-          padding='5em 3em'
+          width='calc(85% - 10em)'
+          padding='5em 2em'
         >
           <Profile />
         </Container>

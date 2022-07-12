@@ -10,7 +10,7 @@ declare module 'styled-components' {
     }
   }
   export interface DefaultProps {
-    children?: ReactNode | ReactNode[];
+    children?: ReactNode;
     width?: string;
     height?: string;
     margin?: string;
