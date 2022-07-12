@@ -6,6 +6,8 @@ import {
   } from 'wagmi'
 import { DisplayPoolStuff } from './PoolTokens'
 
+import Button from '../elements/button'
+
   export function Profile() {
     const { address, connector, isConnected } = useAccount()
     const { data: ensName } = useEnsName({ address })
@@ -27,7 +29,7 @@ import { DisplayPoolStuff } from './PoolTokens'
     return (
       <div>
         {connectors.map((connector) => (
-          <button
+          <Button
             disabled={!connector.ready}
             key={connector.id}
             onClick={() => connect({ connector })}
@@ -37,7 +39,7 @@ import { DisplayPoolStuff } from './PoolTokens'
             {isLoading &&
               connector.id === pendingConnector?.id &&
               ' (connecting)'}
-          </button>
+          </Button>
         ))}
 
         {error && <div>{error.message}</div>}

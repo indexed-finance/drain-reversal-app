@@ -1,8 +1,8 @@
-import { formatEther } from "ethers/lib/utils";
-import { useMemo } from "react";
-import { CC10, DEFI5, FFF, TOKEN_SYMBOLS, UNISWAP_PAIRS } from "../config";
-import { useRedeemableAmounts, useRedeemActions, useUniBurnAllowance } from "../hooks/pools";
-import { TokenAmounts } from "../types";
+import { formatEther } from 'ethers/lib/utils';
+import { useMemo } from 'react';
+import { CC10, DEFI5, FFF, TOKEN_SYMBOLS, UNISWAP_PAIRS } from '../config';
+import { useRedeemableAmounts, useRedeemActions, useUniBurnAllowance } from '../hooks/pools';
+import { TokenAmounts } from '../types';
 
 type Props = TokenAmounts & {
     isPair?: boolean;
@@ -54,14 +54,14 @@ function PoolTokenAmounts({
       console.log(redeem.error)
     }
 
-    return <div className="PoolData">
+    return <div className='PoolData'>
         {
           balance.gt(0) && stakedAmount.gt(0) && <h3>Total {name}: {formatEther(totalBalance)}</h3>
         }
-        
+
         {balance.gt(0) && <h4>{name} Balance: {formatEther(balance)}</h4>}
 
-        {stakedAmount.gt(0) && <div className="StakedAmounts">
+        {stakedAmount.gt(0) && <div className='StakedAmounts'>
           <h4>Staked {name}: {formatEther(stakedAmount)}</h4>
           <h5>Unstake tokens to redeem underlying assets</h5>
           <button disabled={unstake.isLoading} onClick={() => unstake.write()}>Withdraw staked tokens</button>
@@ -69,7 +69,7 @@ function PoolTokenAmounts({
           { unstake.isError && <p>Error withdrawing staked tokens (check console)</p> }
         </div>}
 
-        <div className="UnderlyingAmounts">
+        <div className='UnderlyingAmounts'>
           {
             isPair && <div>
               <h4>Redeemable Underlying Assets For {formatEther(totalBalance)} {name}</h4>
@@ -121,11 +121,11 @@ export function DisplayPoolStuff({ address }: { address: string }) {
         </div>
     }
     return <div>
-        <PoolTokenAmounts poolName="DEFI5" { ...data.defi5_amounts } address={DEFI5} account={address} />
-        <PoolTokenAmounts poolName="CC10" { ...data.cc10_amounts } address={CC10} account={address} />
-        <PoolTokenAmounts poolName="FFF" { ...data.fff_amounts } address={FFF} account={address} />
-        <PoolTokenAmounts poolName="DEFI5" isPair { ...data.defi5LP_amounts }  address={UNISWAP_PAIRS.defi5} account={address} />
-        <PoolTokenAmounts poolName="CC10" isPair { ...data.cc10LP_amounts } address={UNISWAP_PAIRS.cc10} account={address}  />
-        <PoolTokenAmounts poolName="FFF" isPair { ...data.fffLP_amounts } address={UNISWAP_PAIRS.fff} account={address} />
+        <PoolTokenAmounts poolName='DEFI5' { ...data.defi5_amounts } address={DEFI5} account={address} />
+        <PoolTokenAmounts poolName='CC10' { ...data.cc10_amounts } address={CC10} account={address} />
+        <PoolTokenAmounts poolName='FFF' { ...data.fff_amounts } address={FFF} account={address} />
+        <PoolTokenAmounts poolName='DEFI5' isPair { ...data.defi5LP_amounts }  address={UNISWAP_PAIRS.defi5} account={address} />
+        <PoolTokenAmounts poolName='CC10' isPair { ...data.cc10LP_amounts } address={UNISWAP_PAIRS.cc10} account={address}  />
+        <PoolTokenAmounts poolName='FFF' isPair { ...data.fffLP_amounts } address={UNISWAP_PAIRS.fff} account={address} />
     </div>
 }
