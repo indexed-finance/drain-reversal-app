@@ -29,28 +29,19 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={{ ...theme, mobile }}>
-      <WagmiConfig client={client}>
-        <Navigation { ...theme.rwd[`${mobile}`].navigation }>
+    <WagmiConfig client={client}>
+      <ThemeProvider theme={{ ...theme, mobile }}>
+        <Navigation { ...styles.navigation }>
           <h3> DRAIN REVERSAL </h3>
-          <Button
-            float='right'
-            onClick={toggleTheme}
-          >
+          <Button onClick={toggleTheme} >
             Dark / Light
           </Button>
         </Navigation>
-        <Container
-          margin='calc(27.5vh - 7.5em) 10%'
-          height='calc(75vh - 10em)'
-          padding='5em 2em'
-          fontSize='1.5em'
-          width='auto'
-        >
+        <Container { ...styles.container}>
           <Profile />
         </Container>
-      </WagmiConfig>
-    </ThemeProvider>
+      </ThemeProvider>
+    </WagmiConfig>
   );
 }
 

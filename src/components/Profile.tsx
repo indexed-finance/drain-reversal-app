@@ -19,7 +19,7 @@ import List from '../elements/list'
 
     if (isConnected && address) {
       return (
-        <List direction='column'>
+        <List direction='column' margin='auto'>
           <h2>{ensName ? `${ensName} (${address})` : address}</h2>
           <span>Connected to {connector?.name}</span>
           <Button onClick={() => disconnect()}>Disconnect</Button>
@@ -29,7 +29,10 @@ import List from '../elements/list'
     }
 
     return (
-      <List direction='column'>
+      <List
+        direction='column'
+        margin='2em 0em'
+      >
         {connectors.map((connector) => (
           <Button
               disabled={!connector.ready}

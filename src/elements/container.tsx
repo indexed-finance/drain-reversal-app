@@ -5,6 +5,7 @@ const InlineContainer = styled.div<DefaultProps>`
   ${props => `
     border-color: ${props.theme.palette.primary};
     background: ${props.theme.palette.secondary};
+    color: ${props.theme.palette.primary};
 
     width: ${props.width};
     height: ${props.height};

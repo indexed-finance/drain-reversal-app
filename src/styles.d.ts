@@ -7,6 +7,13 @@ declare module 'styled-components' {
       height: string;
       width: string;
       fontSize: string;
+    },
+    container: {
+      margin: string;
+      height: string;
+      padding: string;
+      fontSize: string;
+      width: string;
     }
   }
   export interface DefaultProps {

@@ -4,4 +4,5 @@ export default `
   border-width: 2px;
   margin: 0 1em;
   padding: .5em 1em;
+  position: relative;
 `

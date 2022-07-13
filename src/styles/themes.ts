@@ -3,16 +3,30 @@ import { DefaultTheme, RwdParams } from 'styled-components'
 const mobile: RwdParams = {
   navigation: {
     width: '100vw',
-    height: '10em',
-    fontSize: '3em',
+    height: '5em',
+    fontSize: '.75em',
+  },
+  container: {
+    margin: 'calc(27.5vh - 7.5em) 10%',
+    height: 'calc(75vh - 10em)',
+    padding: '5em 2em',
+    fontSize: '1.5em',
+    width: 'auto',
   }
 };
 
 const native: RwdParams = {
   navigation: {
     width: '100vw',
-    height: '15em',
-    fontSize: '3em',
+    height: '5em',
+    fontSize: '1em',
+  },
+  container: {
+    margin: 'calc(27.5vh - 7.5em) 10%',
+    height: 'calc(75vh - 10em)',
+    padding: '5em 2em',
+    fontSize: '1.5em',
+    width: 'auto',
   }
 };
 
