@@ -10,7 +10,7 @@ const mobile: RwdParams = {
     margin: 'calc(27.5vh - 7.5em) 10%',
     height: 'calc(75vh - 10em)',
     padding: '5em 2em',
-    fontSize: '1.5em',
+    fontSize: '2em',
     width: 'auto',
   }
 };

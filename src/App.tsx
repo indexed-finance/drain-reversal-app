@@ -20,7 +20,7 @@ function App() {
   const styles = theme.rwd[`${mobile}`]
 
   const toggleTheme = () => {
-    const invertedTheme = theme == themes.light
+    const invertedTheme = theme === themes.light
       ? themes.dark : themes.light
     document.body.style.backgroundColor =
       invertedTheme.palette.secondary
@@ -33,7 +33,10 @@ function App() {
       <ThemeProvider theme={{ ...theme, mobile }}>
         <Navigation { ...styles.navigation }>
           <h3> DRAIN REVERSAL </h3>
-          <Button onClick={toggleTheme} >
+          <Button
+            onClick={toggleTheme}
+            margin='.5em 2em 0em 0em'
+          >
             Dark / Light
           </Button>
         </Navigation>

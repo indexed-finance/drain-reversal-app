@@ -1,6 +1,8 @@
 import { Children, ReactNode } from 'react'
 import styled, { DefaultProps } from 'styled-components'
 
+import static_styles from '../styles/elements/navigation'
+
 import List from './list'
 
 interface Props {
@@ -11,11 +13,6 @@ interface Props {
 }
 
 const InlineNavigation = styled.div<DefaultProps>`
-  position: fixed;
-  border-bottom-width: 3px;
-  border-bottom-style: solid;
-  top: 0%;
-
   ${props => `
     width: ${props.width};
     height: ${props.height};
@@ -23,6 +20,7 @@ const InlineNavigation = styled.div<DefaultProps>`
     color: ${props.theme.palette.primary};
     border-bottom-color: ${props.theme.palette.primary};
   `}
+  ${static_styles}
 `
 
 export default function Navigation(props: Props) {

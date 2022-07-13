@@ -4,6 +4,6 @@ export default `
   border-style: solid;
   align-content: center;
   justify-content: center;
-  overflow: hidden;
+  overflow-wrap: break-word; 
   display: flex;
 `

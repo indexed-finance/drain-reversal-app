@@ -19,7 +19,7 @@ import List from '../elements/list'
 
     if (isConnected && address) {
       return (
-        <List direction='column' margin='auto'>
+        <List fullWidth direction='column' margin='1em'>
           <h2>{ensName ? `${ensName} (${address})` : address}</h2>
           <span>Connected to {connector?.name}</span>
           <Button onClick={() => disconnect()}>Disconnect</Button>

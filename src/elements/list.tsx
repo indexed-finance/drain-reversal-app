@@ -1,23 +1,23 @@
 import styled from 'styled-components'
 import { ReactNode, Children } from 'react'
 
+import static_styles from '../styles/elements/list'
+
 interface Props {
   children: ReactNode[];
   direction: string;
   margin?: string;
+  fullWidth?: boolean;
 }
 
 const InlineList = styled.ul<Props>`
-  align-content: center;
-  align-items: center;
-  list-style: none;
-  padding: 0px;
-  margin: 0px;
-
   ${props => `
     display: ${props.direction == 'row'
       ? 'inline' : 'block'};
+    width: ${props.fullWidth
+      ? '100%' : 'auto'};
   `}
+  ${static_styles}
 `
 
 const InlinePoint = styled.li<Props>`
@@ -37,12 +37,10 @@ const InlinePoint = styled.li<Props>`
 `
 
 export default function List(props: Props) {
-  const { children } = props
-
   return (
     <InlineList {...props}>
       {Children.map(
-          Children.toArray(children), (e) => (
+          Children.toArray(props.children), (e) => (
             <InlinePoint {...props}> {e} </InlinePoint>
           )
       )}

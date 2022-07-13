@@ -5,6 +5,7 @@ export default styled.button<DefaultProps>`
   ${props => `
     width: ${props.width};
     float: ${props.float};
+    margin: ${props.margin};
     font-size: ${props.fontSize};
     color: ${props.theme.palette.primary};
     border-color: ${props.theme.palette.primary};
