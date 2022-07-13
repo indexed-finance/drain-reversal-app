@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { WagmiConfig } from 'wagmi'
 
-import Container from './elements/container'
-import Navigation from './elements/navigation'
-import Button from './elements/button'
+import NavigationBar from './views/navbar'
+import Profile from './views/profile'
 
-import { Profile } from './components/Profile'
+import Container from './elements/container'
+import Button from './elements/button'
 
 import themes from './styles/themes'
 import { client } from './config'
@@ -31,15 +31,9 @@ function App() {
   return (
     <WagmiConfig client={client}>
       <ThemeProvider theme={{ ...theme, mobile }}>
-        <Navigation { ...styles.navigation }>
-          <h3> DRAIN REVERSAL </h3>
-          <Button
-            onClick={toggleTheme}
-            margin='.5em 2em 0em 0em'
-          >
-            Dark / Light
-          </Button>
-        </Navigation>
+        <NavigationBar
+          styles={styles.navigation} onClick={toggleTheme}
+        />
         <Container { ...styles.container}>
           <Profile />
         </Container>

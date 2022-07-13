@@ -102,7 +102,7 @@ function PoolTokenAmounts({
     </div>
 }
 
-export function DisplayPoolStuff({ address }: { address: string }) {
+export default function PoolBalances({ address }: { address: string }) {
     const { data, isError, isLoading, error } = useRedeemableAmounts(address);
     if (isError) {
         console.log(error)

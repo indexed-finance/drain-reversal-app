@@ -1,29 +1,36 @@
-import {
-    useAccount,
-    useConnect,
-    useDisconnect,
-    useEnsName,
-  } from 'wagmi'
-import { DisplayPoolStuff } from './PoolTokens'
+import { useTheme } from 'styled-components'
+import { useAccount, useConnect, useDisconnect, useEnsName } from 'wagmi'
+
+import PoolBalances from '../components/poolbalances'
 
 import Button from '../elements/button'
 import List from '../elements/list'
 
-  export function Profile() {
+export default function Profile() {
     const { address, connector, isConnected } = useAccount()
-    const { data: ensName } = useEnsName({ address })
+    const {
+      connect, connectors, error, isLoading, pendingConnector
+    } = useConnect()
 
-    const { connect, connectors, error, isLoading, pendingConnector } =
-      useConnect()
+    const { data: ensName } = useEnsName({ address })
     const { disconnect } = useDisconnect()
+    const theme = useTheme()
 
     if (isConnected && address) {
       return (
-        <List fullWidth direction='column' margin='1em'>
+        <List
+          fullWidth={theme.mobile ? true : false}
+          direction='column'
+          margin='1em'
+        >
           <h2>{ensName ? `${ensName} (${address})` : address}</h2>
           <span>Connected to {connector?.name}</span>
-          <Button onClick={() => disconnect()}>Disconnect</Button>
-          <DisplayPoolStuff address={address} />
+          <Button
+            onClick={() => disconnect()}
+          >
+            Disconnect
+          </Button>
+          <PoolBalances address={address} />
         </List>
       )
     }
