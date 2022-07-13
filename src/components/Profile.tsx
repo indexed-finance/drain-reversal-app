@@ -12,14 +12,15 @@ import List from '../elements/list'
   export function Profile() {
     const { address, connector, isConnected } = useAccount()
     const { data: ensName } = useEnsName({ address })
+
     const { connect, connectors, error, isLoading, pendingConnector } =
       useConnect()
     const { disconnect } = useDisconnect()
 
     if (isConnected && address) {
       return (
-        <List>
-          <h3>{ensName ? `${ensName} (${address})` : address}</h3>
+        <List direction='column'>
+          <h2>{ensName ? `${ensName} (${address})` : address}</h2>
           <span>Connected to {connector?.name}</span>
           <Button onClick={() => disconnect()}>Disconnect</Button>
           <DisplayPoolStuff address={address} />
@@ -28,7 +29,7 @@ import List from '../elements/list'
     }
 
     return (
-      <List>
+      <List direction='column'>
         {connectors.map((connector) => (
           <Button
               disabled={!connector.ready}
