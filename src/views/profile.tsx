@@ -2,6 +2,7 @@ import { useTheme } from 'styled-components'
 import { useAccount, useConnect, useDisconnect, useEnsName } from 'wagmi'
 
 import PoolBalances from '../components/poolbalances'
+import Identicon from '../components/identicon'
 
 import Button from '../elements/button'
 import List from '../elements/list'
@@ -16,17 +17,28 @@ export default function Profile() {
     const { disconnect } = useDisconnect()
     const theme = useTheme()
 
+    const styles = theme.rwd[`${theme.mobile}`]
+
     if (isConnected && address) {
+      const formattedAddress = `${address.substring(0,4)}...
+        ${address.substring(38,42)}`
       return (
         <List
-          fullWidth={theme.mobile ? true : false}
+          fullWidth={theme.mobile}
           direction='column'
           margin='1em'
         >
-          <h2>{ensName ? `${ensName} (${address})` : address}</h2>
+          <Identicon address={address} />
+          <h1>
+            { `${address.substring(0,4)}...${address.substring(38,42)}`}
+          </h1>
+          <h2 style={{ color: 'grey' }}>{ensName ? `(${ensName})`: ''}</h2>
           <span>Connected to {connector?.name}</span>
           <Button
+            { ...styles.button }
             onClick={() => disconnect()}
+            margin='auto'
+            secondary
           >
             Disconnect
           </Button>
@@ -37,13 +49,13 @@ export default function Profile() {
 
     return (
       <List
-        direction='column'
-        margin='2em 0em'
+        direction='column' margin='2em 0em'
       >
         {connectors.map((connector) => (
           <Button
-              disabled={!connector.ready}
               key={connector.id}
+              { ...styles.button }
+              disabled={!connector.ready}
               onClick={() => connect({ connector })}
               width='10em'
             >

@@ -1,19 +1,30 @@
 import styled, { DefaultProps } from 'styled-components'
 import static_styles from '../styles/elements/button'
 
-export default styled.button<DefaultProps>`
+interface ButtonProps extends DefaultProps {
+  secondary?: boolean;
+}
+
+export default styled.button<ButtonProps>`
   ${props => `
+    border-color: ${props.theme.palette.primary};
+    border-radius: ${props.borderRadius};
+    color: ${props.theme.palette.primary};
+    background: ${props.theme.palette.secondary};
+    font-size: ${props.fontSize};
+    margin: ${props.margin};
     width: ${props.width};
     float: ${props.float};
-    margin: ${props.margin};
-    font-size: ${props.fontSize};
-    color: ${props.theme.palette.primary};
-    border-color: ${props.theme.palette.primary};
 
     &:hover {
-      color: ${props.theme.palette.ternary};
       border-color: ${props.theme.palette.ternary};
+      color: ${props.theme.palette.ternary};
     }
+
+    ${props.secondary ? `
+      color: ${props.theme.palette.secondary};
+      background: ${props.theme.palette.primary};
+    ` : ``}
   `}
   ${static_styles}
 `

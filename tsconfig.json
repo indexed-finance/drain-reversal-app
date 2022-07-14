@@ -22,6 +22,7 @@
   },
   "include": [
     "src/styles.d.ts",
+    "src/modules.d.ts",
     "src/"
   ]
 }

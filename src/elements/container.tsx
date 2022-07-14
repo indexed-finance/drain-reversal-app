@@ -7,6 +7,7 @@ const InlineContainer = styled.div<DefaultProps>`
     background: ${props.theme.palette.secondary};
     color: ${props.theme.palette.primary};
 
+    border-radius: ${props.borderRadius};
     width: ${props.width};
     height: ${props.height};
     padding: ${props.padding};
