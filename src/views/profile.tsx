@@ -1,5 +1,5 @@
-import { useTheme } from 'styled-components'
-import { useAccount, useConnect, useDisconnect, useEnsName } from 'wagmi'
+import styled, { useTheme } from 'styled-components'
+import { useAccount, useConnect, useDisconnect } from 'wagmi'
 
 import PoolBalances from '../components/poolbalances'
 import Identicon from '../components/identicon'
@@ -7,21 +7,55 @@ import Identicon from '../components/identicon'
 import Button from '../elements/button'
 import List from '../elements/list'
 
+import walletconnect from '../assets/img/walletconnect.png'
+import coinbase from '../assets/img/coinbase.png'
+import metamask from '../assets/img/metamask.png'
+
+interface ProviderAssets {
+  "WalletConnect": string;
+  "Coinbase Wallet": string;
+  "MetaMask": string;
+}
+
+const assets: ProviderAssets = {
+  "WalletConnect": walletconnect,
+  "Coinbase Wallet": coinbase,
+  "MetaMask": metamask,
+}
+
+const Wrapper = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & img {
+    width: 35px;
+    margin-right: auto;
+    margin-left: 45px;
+    float: left;
+  }
+
+  & span {
+    align-text: left;
+    margin-right: auto;
+    margin-left: -30px;
+  }
+`
+
 export default function Profile() {
     const { address, connector, isConnected } = useAccount()
     const {
       connect, connectors, error, isLoading, pendingConnector
     } = useConnect()
 
-    const { data: ensName } = useEnsName({ address })
     const { disconnect } = useDisconnect()
     const theme = useTheme()
 
     const styles = theme.rwd[`${theme.mobile}`]
 
     if (isConnected && address) {
-      const formattedAddress = `${address.substring(0,4)}...
-        ${address.substring(38,42)}`
       return (
         <List
           fullWidth={theme.mobile}
@@ -29,11 +63,9 @@ export default function Profile() {
           margin='1em'
         >
           <Identicon address={address} />
-          <h1>
-            { `${address.substring(0,4)}...${address.substring(38,42)}`}
-          </h1>
-          <h2 style={{ color: 'grey' }}>{ensName ? `(${ensName})`: ''}</h2>
-          <span>Connected to {connector?.name}</span>
+          <span>
+            Connected to {connector?.name}
+          </span>
           <Button
             { ...styles.button }
             onClick={() => disconnect()}
@@ -57,9 +89,17 @@ export default function Profile() {
               { ...styles.button }
               disabled={!connector.ready}
               onClick={() => connect({ connector })}
-              width='10em'
+              width='20em'
+              height='4em'
             >
-              {connector.name}
+              <Wrapper>
+              <img
+                src={assets[
+                  connector.name as keyof ProviderAssets
+                ]}
+               />
+              <span> {connector.name} </span>
+              </Wrapper>
               {!connector.ready && ' (unsupported)'}
               {isLoading &&
                 connector.id === pendingConnector?.id &&

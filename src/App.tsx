@@ -7,6 +7,7 @@ import NavigationBar from './views/navbar'
 import Profile from './views/profile'
 
 import Container from './elements/container'
+import StyleSheet from './styles/global'
 import Button from './elements/button'
 
 import themes from './styles/themes'
@@ -22,8 +23,6 @@ function App() {
   const toggleTheme = () => {
     const invertedTheme = theme === themes.light
       ? themes.dark : themes.light
-    document.body.style.backgroundColor =
-      invertedTheme.palette.secondary
 
     setTheme(invertedTheme)
   }
@@ -31,6 +30,7 @@ function App() {
   return (
     <WagmiConfig client={client}>
       <ThemeProvider theme={{ ...theme, mobile }}>
+        <StyleSheet />
         <NavigationBar
           styles={styles.navigation} onClick={toggleTheme}
         />

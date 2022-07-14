@@ -1,16 +1,8 @@
-import { Children, ReactNode } from 'react'
 import styled, { DefaultProps } from 'styled-components'
 
 import static_styles from '../styles/elements/navigation'
 
 import List from './list'
-
-interface Props {
-  children: ReactNode[];
-  width: string;
-  height: string;
-  fontSize: string;
-}
 
 const InlineNavigation = styled.div<DefaultProps>`
   ${props => `
@@ -23,7 +15,7 @@ const InlineNavigation = styled.div<DefaultProps>`
   ${static_styles}
 `
 
-export default function Navigation(props: Props) {
+export default function Navigation(props: DefaultProps) {
   return (
     <InlineNavigation {...props}>
       <List

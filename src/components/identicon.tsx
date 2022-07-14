@@ -1,5 +1,6 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useRef, Fragment } from 'react'
 import { useTheme } from 'styled-components'
+import { useEnsName } from 'wagmi'
 
 import styled from 'styled-components'
 import jazzicon from 'jazzicon'
@@ -17,6 +18,8 @@ const Wrapper = styled.div`
 
 export default function Identicon({ address }: Props) {
     const target = useRef<HTMLDivElement>(document.createElement('div'))
+
+    const { data: ensName } = useEnsName({ address })
     const theme = useTheme()
 
     useLayoutEffect(() => {
@@ -32,10 +35,7 @@ export default function Identicon({ address }: Props) {
         identicon.children[0].style.width = circumference
         identicon.children[0].style.height = circumference
 
-        identicon.style.borderColor = `${theme.palette.primary}`
-        identicon.style.borderStyle = 'solid'
-        identicon.style.borderWidth = '6px'
-
+        identicon.style.border = `6px solid ${theme.palette.primary}`
         identicon.style.borderRadius = borderRadius
         identicon.style.boxShadow = boxShadow
 
@@ -44,10 +44,14 @@ export default function Identicon({ address }: Props) {
     }, [ address ])
 
   return(
-    <Wrapper>
-      <a target='_blank' href={`https://etherscan.io/address/${address}`} >
-        <div ref={ target } />
-      </a>
-    </Wrapper>
+    <Fragment>
+      <Wrapper>
+        <a target='_blank' href={`https://etherscan.io/address/${address}`} >
+          <div ref={ target } />
+        </a>
+      </Wrapper>
+      <h1> { `${address.substring(0,4)}...${address.substring(38,42)}`} </h1>
+      <h2 style={{ color: '#c5c5c5' }}>{ensName ? `(${ensName})`: ''}</h2>
+    </Fragment>
   )
 }

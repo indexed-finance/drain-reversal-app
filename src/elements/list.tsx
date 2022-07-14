@@ -1,12 +1,10 @@
-import styled from 'styled-components'
+import styled, { DefaultProps } from 'styled-components'
 import { ReactNode, Children } from 'react'
 
 import static_styles from '../styles/elements/list'
 
-interface Props {
-  children: ReactNode[];
+interface Props extends DefaultProps {
   direction: string;
-  margin?: string;
   fullWidth?: boolean;
 }
 

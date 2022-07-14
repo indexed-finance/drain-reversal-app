@@ -1,5 +1,5 @@
 export default `
-  border-width: 3px;
+  border-width: 4px;
   border-style: solid;
   align-content: center;
   justify-content: center;

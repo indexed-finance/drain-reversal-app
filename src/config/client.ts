@@ -40,13 +40,6 @@ export const client = createClient({
         qrcode: true,
       },
     }),
-    new InjectedConnector({
-      chains,
-      options: {
-        name: 'Injected Provider',
-        shimDisconnect: true,
-      },
-    }),
   ],
   provider,
   webSocketProvider,

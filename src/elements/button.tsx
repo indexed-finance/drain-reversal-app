@@ -7,24 +7,25 @@ interface ButtonProps extends DefaultProps {
 
 export default styled.button<ButtonProps>`
   ${props => `
+    background: ${props.theme.palette.secondary};
     border-color: ${props.theme.palette.primary};
     border-radius: ${props.borderRadius};
     color: ${props.theme.palette.primary};
-    background: ${props.theme.palette.secondary};
     font-size: ${props.fontSize};
     margin: ${props.margin};
     width: ${props.width};
+    height: ${props.height};
     float: ${props.float};
-
-    &:hover {
-      border-color: ${props.theme.palette.ternary};
-      color: ${props.theme.palette.ternary};
-    }
 
     ${props.secondary ? `
       color: ${props.theme.palette.secondary};
       background: ${props.theme.palette.primary};
     ` : ``}
+
+    &:hover {
+      border-color: ${props.theme.palette.ternary};
+      color: ${props.theme.palette.ternary};
+    }
   `}
   ${static_styles}
 `

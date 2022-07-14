@@ -21,10 +21,11 @@ export default function NavigationBar(props: Props) {
   const { onClick, styles } = props
   return (
     <Navigation { ...styles.dimensions }>
-      <h3> DRAIN REVERSAL </h3>
+      <h2> DRAIN REVERSAL </h2>
       <Button
         {...styles.button}
         onClick={onClick}
+        secondary
       >
         Dark / Light
       </Button>
