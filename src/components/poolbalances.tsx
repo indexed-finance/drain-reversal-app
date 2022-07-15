@@ -107,7 +107,7 @@ export default function PoolBalances({ address }: { address: string }) {
     if (isError) {
         console.log(error)
         return <div>
-            <b>Error loading data (check console) </b>
+            <b style={{ color:  'orange' }}>Error loading data (check console) </b>
         </div>
     }
     if (isLoading) {

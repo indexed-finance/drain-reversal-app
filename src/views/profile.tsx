@@ -4,12 +4,15 @@ import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import PoolBalances from '../components/poolbalances'
 import Identicon from '../components/identicon'
 
+import ImageWrapper from '../elements/wrap'
 import Button from '../elements/button'
 import List from '../elements/list'
 
 import walletconnect from '../assets/img/walletconnect.png'
 import coinbase from '../assets/img/coinbase.png'
 import metamask from '../assets/img/metamask.png'
+
+import { devices } from '../styles/breakpoints'
 
 interface ProviderAssets {
   "WalletConnect": string;
@@ -22,27 +25,6 @@ const assets: ProviderAssets = {
   "Coinbase Wallet": coinbase,
   "MetaMask": metamask,
 }
-
-const Wrapper = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  & img {
-    width: 35px;
-    margin-right: auto;
-    margin-left: 45px;
-    float: left;
-  }
-
-  & span {
-    align-text: left;
-    margin-right: auto;
-    margin-left: -30px;
-  }
-`
 
 export default function Profile() {
     const { address, connector, isConnected } = useAccount()
@@ -67,7 +49,6 @@ export default function Profile() {
             Connected to {connector?.name}
           </span>
           <Button
-            { ...styles.button }
             onClick={() => disconnect()}
             margin='auto'
             secondary
@@ -86,24 +67,22 @@ export default function Profile() {
         {connectors.map((connector) => (
           <Button
               key={connector.id}
-              { ...styles.button }
               disabled={!connector.ready}
               onClick={() => connect({ connector })}
-              width='20em'
+              width={theme.mobile ? '13em': '20em'}
               height='4em'
+              animate
             >
-              <Wrapper>
-              <img
-                src={assets[
-                  connector.name as keyof ProviderAssets
-                ]}
-               />
-              <span> {connector.name} </span>
-              </Wrapper>
-              {!connector.ready && ' (unsupported)'}
-              {isLoading &&
-                connector.id === pendingConnector?.id &&
-                ' (connecting)'}
+              <ImageWrapper>
+                <img src={assets[
+                    connector.name as keyof ProviderAssets
+                  ]}
+                />
+                <span> {
+                  connector.name.charAt(0)
+                    + connector.name.slice(1).toLowerCase()
+                }</span>
+              </ImageWrapper>
             </Button>
         ))}
       </List>

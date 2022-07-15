@@ -5,24 +5,20 @@ const mobile: RwdParams = {
     dimensions: {
       width: '100vw',
       height: '5em',
-      fontSize: '.75em',
+      fontSize: '.8em',
     },
     button: {
-      margin: '.5em 2em 0em 0em',
+      margin: '.125em 2em 0em 0em',
       borderRadius: '7px'
     }
   },
   container: {
     margin: 'calc(27.5vh - 7.5em) 10%',
-    height: 'calc(75vh - 10em)',
+    height: 'calc(65vh - 10em)',
     borderRadius: '9px',
     padding: '5em 2em',
     fontSize: '1em',
     width: 'auto',
-  },
-  button: {
-    fontSize: '1.375em',
-    borderRadius: '7px'
   },
   identicon: {
     borderRadius: '250px',
@@ -39,7 +35,7 @@ const native: RwdParams = {
       fontSize: '1em',
     },
     button: {
-      margin: '1.25em 2.5em 0em 0em',
+      margin: '.5em 2.5em 0em 0em',
       borderRadius: '7px'
     }
   },
@@ -50,10 +46,6 @@ const native: RwdParams = {
     padding: '5em 2em',
     fontSize: '1.5em',
     width: 'auto',
-  },
-  button: {
-    fontSize: '1em',
-    borderRadius: '7px'
   },
   identicon: {
     borderRadius: '250px',

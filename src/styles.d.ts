@@ -22,10 +22,6 @@ declare module 'styled-components' {
       borderRadius: string;
       width: string;
     }
-    button: {
-      fontSize: string;
-      borderRadius: string;
-    },
     identicon: {
       boxShadow: string;
       borderRadius: string;

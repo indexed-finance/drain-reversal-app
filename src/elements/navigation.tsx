@@ -10,6 +10,7 @@ const InlineNavigation = styled.div<DefaultProps>`
     height: ${props.height};
     font-size: ${props.fontSize};
     color: ${props.theme.palette.primary};
+    background: ${props.theme.palette.secondary};
     border-bottom-color: ${props.theme.palette.primary};
   `}
   ${static_styles}

@@ -50,8 +50,8 @@ export default function Identicon({ address }: Props) {
           <div ref={ target } />
         </a>
       </Wrapper>
-      <h1> { `${address.substring(0,4)}...${address.substring(38,42)}`} </h1>
-      <h2 style={{ color: '#c5c5c5' }}>{ensName ? `(${ensName})`: ''}</h2>
+      <h2> { `${address.substring(0,4)}...${address.substring(38,42)}`} </h2>
+      <h3 style={{ color: '#c5c5c5' }}>{ensName ? `(${ensName})`: ''}</h3>
     </Fragment>
   )
 }

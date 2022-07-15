@@ -3,6 +3,7 @@ import static_styles from '../styles/elements/button'
 
 interface ButtonProps extends DefaultProps {
   secondary?: boolean;
+  animate?: boolean;
 }
 
 export default styled.button<ButtonProps>`
@@ -25,6 +26,8 @@ export default styled.button<ButtonProps>`
     &:hover {
       border-color: ${props.theme.palette.ternary};
       color: ${props.theme.palette.ternary};
+      ${props.animate ?
+        'transform: translateY(-5px);' : ''}
     }
   `}
   ${static_styles}
