@@ -84,7 +84,7 @@ export default createGlobalStyle`
 
     }
 
-    @media ${devices.tablet} {
+    @media ${devices.laptop} {
 
       & button {
         font-size: 1.125em;
@@ -103,7 +103,7 @@ export default createGlobalStyle`
       }
 
       & .container-main {
-        margin: calc(27.5vh - 7.5em) 10%;
+        margin: calc(27.5vh - 5em) 30%;
         height: calc(65vh - 10em);
       }
 
