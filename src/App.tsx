@@ -18,7 +18,6 @@ const isMobileClient = () => window.innerWidth < 500
 function App() {
   const [ mobile, setMobile ] = useState(isMobileClient())
   const [ theme, setTheme ] = useState(themes.light)
-  const styles = theme.rwd[`${mobile}`]
 
   const toggleTheme = () => {
     const invertedTheme = theme === themes.light
@@ -32,9 +31,9 @@ function App() {
       <ThemeProvider theme={{ ...theme, mobile }}>
         <StyleSheet />
         <NavigationBar
-          styles={styles.navigation} onClick={toggleTheme}
+          className='navigation-bar' onClick={toggleTheme}
         />
-        <Container { ...styles.container}>
+        <Container className='container-main'>
           <Profile />
         </Container>
       </ThemeProvider>

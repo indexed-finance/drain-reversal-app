@@ -33,18 +33,91 @@ export default createGlobalStyle`
       font-family: 'Akko Paneuropean Mono';
     }
 
+    & .navigation-bar {
+      width: 100vw;
+      height: 5em;
+    }
+
+    & .container-main {
+      border-radius: 10px;
+      padding: 5em 2em;
+      width: auto;
+    }
+
+    & .provider-btn {
+      height: 4em;
+    }
+
      @media ${devices.mobileS} {
+
       button {
         font-size: 1.35em;
+        border-width: 20px;
       }
+
+      & .provider-btn {
+        width: 12.5em;
+      }
+
+      & .navigation-bar {
+        font-size: .8em;
+
+        & button {
+          margin: .125em 2em 0em 0em;
+        }
+      }
+
+      & .container-main {
+        margin: calc(27.5vh - 6.75em) 5%;
+        height: calc(80vh - 10em);
+      }
+
+      & .wrapper-content {
+        & img {
+          margin-left: 7.5px;
+        }
+
+        & span {
+          margin-left: 5px;
+        }
+      }
+
     }
 
     @media ${devices.tablet} {
 
-      button {
+      & button {
         font-size: 1.125em;
       }
 
+      & .navigation-bar {
+        font-size: 1em;
+
+        & button {
+          margin: .5em 2em 0em 0em;
+        }
+      }
+
+      & .provider-btn {
+        width: 20em;
+      }
+
+      & .container-main {
+        margin: calc(27.5vh - 7.5em) 10%;
+        height: calc(65vh - 10em);
+      }
+
+      & .wrapper-content {
+        & img {
+          margin-left: 45px;
+        }
+
+        & span {
+          margin-left: -30px;
+        }
+      }
+
     }
+
   `}
 `

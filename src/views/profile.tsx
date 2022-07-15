@@ -1,10 +1,11 @@
-import styled, { useTheme } from 'styled-components'
+import { useTheme } from 'styled-components'
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 
 import PoolBalances from '../components/poolbalances'
 import Identicon from '../components/identicon'
 
-import ImageWrapper from '../elements/wrap'
+import { ImageTextWrapper } from '../elements/wraps'
+
 import Button from '../elements/button'
 import List from '../elements/list'
 
@@ -35,8 +36,6 @@ export default function Profile() {
     const { disconnect } = useDisconnect()
     const theme = useTheme()
 
-    const styles = theme.rwd[`${theme.mobile}`]
-
     if (isConnected && address) {
       return (
         <List
@@ -50,8 +49,8 @@ export default function Profile() {
           </span>
           <Button
             onClick={() => disconnect()}
-            margin='auto'
             secondary
+            animate
           >
             Disconnect
           </Button>
@@ -69,11 +68,10 @@ export default function Profile() {
               key={connector.id}
               disabled={!connector.ready}
               onClick={() => connect({ connector })}
-              width={theme.mobile ? '13em': '20em'}
-              height='4em'
+              className='provider-btn'
               animate
             >
-              <ImageWrapper>
+              <ImageTextWrapper className='wrapper-content'>
                 <img src={assets[
                     connector.name as keyof ProviderAssets
                   ]}
@@ -82,7 +80,7 @@ export default function Profile() {
                   connector.name.charAt(0)
                     + connector.name.slice(1).toLowerCase()
                 }</span>
-              </ImageWrapper>
+              </ImageTextWrapper>
             </Button>
         ))}
       </List>

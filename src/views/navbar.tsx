@@ -1,29 +1,19 @@
+import { DefaultProps } from 'styled-components'
 
 import Navigation from '../elements/navigation'
 import Button from '../elements/button'
 
-interface Props {
+interface Props extends DefaultProps {
   onClick: () => void;
-  styles: {
-    dimensions: {
-      width: string;
-      height: string;
-      fontSize: string;
-    },
-    button: {
-      margin: string;
-      borderRadius: string;
-    }
-  }
 }
 
 export default function NavigationBar(props: Props) {
-  const { onClick, styles } = props
+  const { onClick, className } = props
   return (
-    <Navigation { ...styles.dimensions }>
+    <Navigation className={className}>
       <h2> DRAIN REVERSAL </h2>
       <Button
-        {...styles.button}
+        className='navigation-btn'
         onClick={onClick}
         secondary
       >
