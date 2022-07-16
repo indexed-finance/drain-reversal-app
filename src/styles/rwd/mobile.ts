@@ -1,4 +1,4 @@
-export default `
+const style = `
   button {
     font-size: 1.35em;
     border-width: 4px;
@@ -18,7 +18,7 @@ export default `
   }
 
   & .container-main {
-    margin: calc(30vh - 3.25em) 5%;
+    margin: calc(27.5vh - 5em) 5%;
     padding: 3em 1.5em;
   }
 
@@ -51,11 +51,9 @@ export default `
   }
 
   & .warning-flag {
-    position: absolute;
-    right: 5%;
-    left: 5%;
-    margin: 2%;
-    top: 11%;
+    margin-bottom: 2.5em;
   }
 
 `
+
+export default style

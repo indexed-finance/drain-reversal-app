@@ -1,4 +1,4 @@
-export default `
+const style = `
   align-content: center;
   align-items: center;
   list-style: none;
@@ -6,3 +6,5 @@ export default `
   text-align: center;
   margin: 0px;
 `
+
+export default style

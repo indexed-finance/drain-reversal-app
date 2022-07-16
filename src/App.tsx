@@ -8,7 +8,6 @@ import Profile from './views/profile'
 
 import Container from './elements/container'
 import StyleSheet from './styles/global'
-import Button from './elements/button'
 
 import themes from './styles/themes'
 import { client } from './config'
@@ -16,8 +15,8 @@ import { client } from './config'
 const isMobileClient = () => window.innerWidth < 500
 
 function App() {
-  const [ mobile, setMobile ] = useState(isMobileClient())
   const [ theme, setTheme ] = useState(themes.light)
+  const [ mobile, ] = useState(isMobileClient())
 
   const toggleTheme = () => {
     const invertedTheme = theme === themes.light
@@ -34,7 +33,7 @@ function App() {
           className='navigation-bar' onClick={toggleTheme}
         />
         <Container className='container-main'>
-          <Profile />
+          <Profile isMobile={mobile} />
         </Container>
       </ThemeProvider>
     </WagmiConfig>

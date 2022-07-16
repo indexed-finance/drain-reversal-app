@@ -18,7 +18,6 @@ const light: DefaultTheme = {
   mobile: false
 }
 
-export default {
-  dark,
-  light
-}
+const themes = { light, dark }
+
+export default themes

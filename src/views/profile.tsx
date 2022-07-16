@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-import { useTheme } from 'styled-components'
 import { useAccount, useConnect } from 'wagmi'
 
 import PoolBalances from '../components/poolbalances'
@@ -27,26 +26,30 @@ const assets: ProviderAssets = {
   "MetaMask": metamask,
 }
 
-export default function Profile() {
-    const { address, connector, isConnected } = useAccount()
-    const {
-      connect, connectors, error, isLoading, pendingConnector
-    } = useConnect()
+export default function Profile({ isMobile }: { isMobile: boolean }) {
+    const { address, isConnected } = useAccount()
+    const { connect, connectors } = useConnect()
     const [ redeem, setRedeem ] = useState(false)
 
     const toggleRedeem = () => {
       setRedeem(!redeem)
     }
 
-    const theme = useTheme()
+    const Disclaimer = () => (
+      <div className='warning-flag'>
+        Withdraw staked assets before redeeming
+        to retrieve the amounts displayed.
+      </div>
+    )
 
     if (isConnected && address) {
       return (
         <List
           fullWidth
           direction='column'
-        > <>
-            <div className='provider-account'>
+        >
+          {isMobile && (<Disclaimer />)}
+          <> <div className='provider-account'>
               <Identicon address={address} />
             </div>
             <PoolBalances redeem={redeem} address={address} />
@@ -59,10 +62,7 @@ export default function Profile() {
             >
               {!redeem ? 'Continue': 'Go back' }
             </Button>
-            <div className='warning-flag'>
-              Withdraw staked assets before redeeming
-              to retrieve the amounts displayed.
-            </div>
+            {!isMobile && (<Disclaimer />)}
           </>
         </List>
       )
@@ -81,7 +81,9 @@ export default function Profile() {
               animate
             >
               <ImageTextWrapper className='wrapper-content'>
-                <img src={assets[
+                <img
+                  alt={connector.id}
+                  src={assets[
                     connector.name as keyof ProviderAssets
                   ]}
                 />

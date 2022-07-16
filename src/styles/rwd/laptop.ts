@@ -1,4 +1,4 @@
-export default `
+const style =  `
   & button {
     font-size: 1.1em;
     border-width: 3px;
@@ -60,10 +60,11 @@ export default `
 
   & .warning-flag {
      position: relative;
-     float: left;
-     margin-top: -25px;
      margin-left: -50px;
+     float: left;
      width: 300px;
+     margin: 0px;
    }
-
 `
+
+export default style

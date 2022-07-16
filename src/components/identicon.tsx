@@ -5,7 +5,6 @@ import { useEnsName, useDisconnect } from 'wagmi'
 import { CenteredWrapper } from '../elements/wraps'
 import Button from '../elements/button'
 
-import styled from 'styled-components'
 import jazzicon from 'jazzicon'
 
 export default function Identicon({ address }: { address: string }) {
@@ -25,7 +24,7 @@ export default function Identicon({ address }: { address: string }) {
     )
 
     useLayoutEffect(() => {
-      if(target.current.children.length == 0){
+      if(target.current.children.length === 0){
         const formattedAddress =  parseInt(address.slice(2, 10), 16)
         const circumference = theme.mobile ? 100 : 75
 
@@ -39,17 +38,23 @@ export default function Identicon({ address }: { address: string }) {
 
         target.current.appendChild(identicon)
        }
-    }, [ address ])
+    }, [
+      theme.palette.primary,
+      theme.mobile,
+      address
+    ])
 
   return(
     <Fragment>
       <CenteredWrapper>
-        <a target='_blank' href={`https://etherscan.io/address/${address}`} >
+        <a href={`https://etherscan.io/address/${address}`}
+           rel="noreferrer" target='_blank'
+        >
           <div ref={ target } />
         </a>
       </CenteredWrapper>
       <DisconnectButton />
-      <h3> { `${address.substring(0,4)}...${address.substring(38,42)}`} </h3>
+      <h3> {`${address.substring(0,4)}...${address.substring(38,42)}`} </h3>
       <h4 className='text-alt'>{ensName ? `(${ensName})`: ''}</h4>
     </Fragment>
   )

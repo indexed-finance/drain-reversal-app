@@ -9,7 +9,7 @@ import stylesheet_mobile from './rwd/mobile'
 import stylesheet_laptop from './rwd/laptop'
 import { devices }  from './rwd/breakpoints'
 
-export default createGlobalStyle`
+const globalStyle = createGlobalStyle`
   ${props => `
 
     @font-face {
@@ -86,3 +86,5 @@ export default createGlobalStyle`
     }
   `}
 `
+
+export default globalStyle
