@@ -26,7 +26,7 @@ const assets: ProviderAssets = {
   "MetaMask": metamask,
 }
 
-export default function Profile() {
+export default function Profile({ isMobile }: { isMobile: boolean }) {
     const { address, isConnected } = useAccount()
     const { connect, connectors } = useConnect()
     const [ redeem, setRedeem ] = useState(false)
@@ -35,13 +35,21 @@ export default function Profile() {
       setRedeem(!redeem)
     }
 
+    const Disclaimer = () => (
+      <div className='warning-flag'>
+        Withdraw staked assets before redeeming
+        to retrieve the amounts displayed.
+      </div>
+    )
+
     if (isConnected && address) {
       return (
         <List
           fullWidth
           direction='column'
-        > <>
-            <div className='provider-account'>
+        >
+          {isMobile && (<Disclaimer />)}
+          <> <div className='provider-account'>
               <Identicon address={address} />
             </div>
             <PoolBalances redeem={redeem} address={address} />
@@ -54,10 +62,7 @@ export default function Profile() {
             >
               {!redeem ? 'Continue': 'Go back' }
             </Button>
-            <div className='warning-flag'>
-              Withdraw staked assets before redeeming
-              to retrieve the amounts displayed.
-            </div>
+            {!isMobile && (<Disclaimer />)}
           </>
         </List>
       )

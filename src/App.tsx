@@ -33,7 +33,7 @@ function App() {
           className='navigation-bar' onClick={toggleTheme}
         />
         <Container className='container-main'>
-          <Profile />
+          <Profile isMobile={mobile} />
         </Container>
       </ThemeProvider>
     </WagmiConfig>
