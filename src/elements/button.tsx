@@ -4,6 +4,7 @@ import static_styles from '../styles/elements/button'
 interface ButtonProps extends DefaultProps {
   secondary?: boolean;
   animate?: boolean;
+  disabled?: boolean;
 }
 
 export default styled.button<ButtonProps>`

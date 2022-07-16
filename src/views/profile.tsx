@@ -1,5 +1,7 @@
+import { useState } from 'react'
+
 import { useTheme } from 'styled-components'
-import { useAccount, useConnect, useDisconnect } from 'wagmi'
+import { useAccount, useConnect } from 'wagmi'
 
 import PoolBalances from '../components/poolbalances'
 import Identicon from '../components/identicon'
@@ -32,29 +34,37 @@ export default function Profile() {
     const {
       connect, connectors, error, isLoading, pendingConnector
     } = useConnect()
+    const [ redeem, setRedeem ] = useState(false)
 
-    const { disconnect } = useDisconnect()
+    const toggleRedeem = () => {
+      setRedeem(!redeem)
+    }
+
     const theme = useTheme()
 
     if (isConnected && address) {
       return (
         <List
-          fullWidth={theme.mobile}
+          fullWidth
           direction='column'
-          margin='1em'
-        >
-          <Identicon address={address} />
-          <span>
-            Connected to {connector?.name}
-          </span>
-          <Button
-            onClick={() => disconnect()}
-            secondary
-            animate
-          >
-            Disconnect
-          </Button>
-          <PoolBalances address={address} />
+        > <>
+            <div style={{ float: 'left', marginRight: '50px' }}>
+              <Identicon address={address} />
+            </div>
+            <PoolBalances redeem={redeem} address={address} />
+          </> <>
+            <Button
+              width='auto'
+              height='3em'
+              float='right'
+              onClick={toggleRedeem}
+            >
+              {!redeem ? 'Continue': 'Go back' }
+            </Button>
+            <div className='warning-flag'>
+              Withdraw staked assets to redeem the entire amounts displayed.
+            </div>
+          </>
         </List>
       )
     }
