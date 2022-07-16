@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-import { useTheme } from 'styled-components'
 import { useAccount, useConnect } from 'wagmi'
 
 import PoolBalances from '../components/poolbalances'
@@ -29,16 +28,12 @@ const assets: ProviderAssets = {
 
 export default function Profile() {
     const { address, connector, isConnected } = useAccount()
-    const {
-      connect, connectors, error, isLoading, pendingConnector
-    } = useConnect()
+    const { connect, connectors, error } = useConnect()
     const [ redeem, setRedeem ] = useState(false)
 
     const toggleRedeem = () => {
       setRedeem(!redeem)
     }
-
-    const theme = useTheme()
 
     if (isConnected && address) {
       return (
@@ -81,7 +76,9 @@ export default function Profile() {
               animate
             >
               <ImageTextWrapper className='wrapper-content'>
-                <img src={assets[
+                <img
+                  alt={connector.id}
+                  src={assets[
                     connector.name as keyof ProviderAssets
                   ]}
                 />
