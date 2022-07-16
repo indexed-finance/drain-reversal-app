@@ -1,7 +1,5 @@
 import styled, { DefaultProps } from 'styled-components'
 
-import { devices } from '../styles/breakpoints'
-
 export const ImageTextWrapper = styled.div<DefaultProps>`
   margin-left: auto;
   margin-right: auto;
@@ -26,4 +24,5 @@ export const CenteredWrapper = styled.div<DefaultProps>`
   margin-right: auto;
   display: flex;
   justify-content: center;
+  text-align: center;
 `

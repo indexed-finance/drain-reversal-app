@@ -9,6 +9,7 @@ interface Props extends DefaultProps {
 
 export default function NavigationBar(props: Props) {
   const { onClick, className } = props
+  
   return (
     <Navigation className={className}>
       <h2> DRAIN REVERSAL </h2>

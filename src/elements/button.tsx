@@ -24,12 +24,20 @@ export default styled.button<ButtonProps>`
       background: ${props.theme.palette.primary};
     ` : ``}
 
+    ${props.disabled && props.secondary ? `
+      &:disabled {
+        background: ${props.theme.palette.secondary};
+      }
+    ` : ``}
+
     &:hover {
       border-color: ${props.theme.palette.ternary};
       color: ${props.theme.palette.ternary};
       ${props.animate ?
-        'transform: translateY(-5px);' : ''}
+        'transform: translateY(-5px);'
+        : ''}
     }
+
   `}
   ${static_styles}
 `

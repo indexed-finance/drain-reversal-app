@@ -8,11 +8,7 @@ import Button from '../elements/button'
 import styled from 'styled-components'
 import jazzicon from 'jazzicon'
 
-interface Props {
-  address: string;
-}
-
-export default function Identicon({ address }: Props) {
+export default function Identicon({ address }: { address: string }) {
     const target = useRef<HTMLDivElement>(document.createElement('div'))
     const { data: ensName } = useEnsName({ address })
     const { disconnect } = useDisconnect()
@@ -31,7 +27,7 @@ export default function Identicon({ address }: Props) {
     useLayoutEffect(() => {
       if(target.current.children.length == 0){
         const formattedAddress =  parseInt(address.slice(2, 10), 16)
-        const circumference = theme.mobile ? 50 : 75
+        const circumference = theme.mobile ? 100 : 75
 
         const identicon = jazzicon(circumference, formattedAddress)
 

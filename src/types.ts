@@ -1,7 +1,5 @@
 import { BigNumber } from "ethers";
 
-import { UNISWAP_PAIRS, DEFI5, FFF, CC10 } from './config/addresses'
-
 export interface TokenAmounts {
   pairAmount: BigNumber;
   poolAmount: BigNumber;

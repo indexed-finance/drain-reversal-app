@@ -4,7 +4,9 @@ import paneuropean_mono_1 from '../assets/fonts/paneuropean-mono.woff'
 import paneuropean_mono_2 from '../assets/fonts/paneuropean-mono.woff2'
 import aux_mono from '../assets/fonts/aux-mono.otf'
 
-import { devices }  from './breakpoints'
+import stylesheet_desktop from './rwd/desktop'
+import stylesheet_mobile from './rwd/mobile'
+import { devices }  from './rwd/breakpoints'
 
 export default createGlobalStyle`
   ${props => `
@@ -35,125 +37,45 @@ export default createGlobalStyle`
 
     & .wallet-btn {
       position: absolute;
-      margin-left: 20px;
-      margin-top: -95px;
-      border-radius: 100px;
-      font-size: .75em;
     }
 
     & .warning-flag {
        background: rgba(251, 192, 147, 0.5);
-       padding: 1em;
        border-radius: 10px;
-       float: left;
-       margin-top: -25px;
-       width: 300px;
        text-align: left;
+       padding: 1em;
      }
 
-    &. text-alt {
+    & .text-alt {
       color: #c5c5c5;
-    }
-
-    & .table-btn {
-      font-size: .875em;
-      width 7.5em;
     }
 
     & .navigation-bar {
       width: 100vw;
       height: 5em;
+      z-index: 5;
     }
 
     & .container-main {
       border-radius: 10px;
-      padding: 3em 4em;
       width: auto;
-    }
-
-    & .pool-redemptions {
-      display: table;
-
-      & .table-column {
-        display: table-cell;
-        width: 150px;
-      }
     }
 
     & .provider-btn {
       height: 4em;
     }
 
-     @media ${devices.mobileS} {
+    @media ${devices.mobileS} {
 
-      button {
-        font-size: 1.35em;
-        border-width: 20px;
+      & .table-column {
+        border-top-color: ${props.theme.palette.primary};
       }
 
-      & .provider-btn {
-        width: 12.5em;
-      }
-
-      & .navigation-bar {
-        font-size: .8em;
-
-        & button {
-          margin: .125em 2em 0em 0em;
-        }
-      }
-
-      & .container-main {
-        margin: calc(27.5vh - 6.75em) 5%;
-        height: calc(80vh - 10em);
-      }
-
-      & .wrapper-content {
-        & img {
-          margin-left: 7.5px;
-        }
-
-        & span {
-          margin-left: 5px;
-        }
-      }
-
+      ${stylesheet_mobile}
     }
 
     @media ${devices.laptop} {
-
-      & button {
-        font-size: 1.1em;
-      }
-
-      & .navigation-bar {
-        font-size: 1em;
-
-        & button {
-          margin: .5em 2em 0em 0em;
-        }
-      }
-
-      & .provider-btn {
-        width: 20em;
-      }
-
-      & .container-main {
-        margin: calc(27.5vh - 5em) 20%;
-        height: auto;
-      }
-
-      & .wrapper-content {
-        & img {
-          margin-left: 45px;
-        }
-
-        & span {
-          margin-left: -30px;
-        }
-      }
-
+      ${stylesheet_desktop}
     }
-
   `}
 `

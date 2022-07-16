@@ -15,8 +15,6 @@ import walletconnect from '../assets/img/walletconnect.png'
 import coinbase from '../assets/img/coinbase.png'
 import metamask from '../assets/img/metamask.png'
 
-import { devices } from '../styles/breakpoints'
-
 interface ProviderAssets {
   "WalletConnect": string;
   "Coinbase Wallet": string;
@@ -48,7 +46,7 @@ export default function Profile() {
           fullWidth
           direction='column'
         > <>
-            <div style={{ float: 'left', marginRight: '50px' }}>
+            <div className='provider-account'>
               <Identicon address={address} />
             </div>
             <PoolBalances redeem={redeem} address={address} />
@@ -62,7 +60,8 @@ export default function Profile() {
               {!redeem ? 'Continue': 'Go back' }
             </Button>
             <div className='warning-flag'>
-              Withdraw staked assets to redeem the entire amounts displayed.
+              Withdraw staked assets before redeeming
+              to retrieve the amounts displayed.
             </div>
           </>
         </List>
