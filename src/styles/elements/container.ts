@@ -1,4 +1,4 @@
-export default `
+const style = `
   border-width: 4px;
   border-style: solid;
   align-content: center;
@@ -6,3 +6,5 @@ export default `
   overflow-wrap: break-word;
   display: flex;
 `
+
+export default style

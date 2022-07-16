@@ -1,4 +1,4 @@
-export default `
+const style = `
   button {
     font-size: 1.35em;
     border-width: 4px;
@@ -57,5 +57,6 @@ export default `
     margin: 2%;
     top: 11%;
   }
-
 `
+
+export default style

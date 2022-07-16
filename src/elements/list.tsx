@@ -1,5 +1,6 @@
+import { Children } from 'react'
+
 import styled, { DefaultProps } from 'styled-components'
-import { ReactNode, Children } from 'react'
 
 import static_styles from '../styles/elements/list'
 
@@ -10,7 +11,7 @@ interface Props extends DefaultProps {
 
 const InlineList = styled.ul<Props>`
   ${props => `
-    display: ${props.direction == 'row'
+    display: ${props.direction === 'row'
       ? 'inline' : 'block'};
     width: ${props.fullWidth
       ? '100%' : 'auto'};
@@ -23,12 +24,12 @@ const InlinePoint = styled.li<Props>`
     margin: ${props.margin};
 
     &:first-of-type {
-      ${props.direction == 'row'
+      ${props.direction === 'row'
         ? 'float: left;' : ''};
     }
 
     &:last-of-type {
-      ${props.direction == 'row'
+      ${props.direction === 'row'
         ? 'float: right;' : ''};
     }
   `}

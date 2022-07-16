@@ -8,7 +8,6 @@ import Profile from './views/profile'
 
 import Container from './elements/container'
 import StyleSheet from './styles/global'
-import Button from './elements/button'
 
 import themes from './styles/themes'
 import { client } from './config'

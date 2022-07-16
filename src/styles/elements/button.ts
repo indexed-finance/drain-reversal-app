@@ -1,4 +1,4 @@
-export default `
+const style = `
   position: relative;
   border-radius: 8px;
   padding: .5em 1em;
@@ -14,3 +14,5 @@ export default `
   }
 
 `
+
+export default style
