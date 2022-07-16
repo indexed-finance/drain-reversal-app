@@ -60,10 +60,10 @@ const style =  `
 
   & .warning-flag {
      position: relative;
-     float: left;
-     margin-top: -25px;
      margin-left: -50px;
+     float: left;
      width: 300px;
+     margin: 0px;
    }
 `
 
