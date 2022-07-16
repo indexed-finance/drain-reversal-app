@@ -1,15 +1,44 @@
-import React from 'react';
-import './App.css';
-import { WagmiConfig } from 'wagmi';
-import { client } from './config';
-import { Profile } from './components/Profile';
+import React, { useState } from 'react'
+
+import { ThemeProvider } from 'styled-components'
+import { WagmiConfig } from 'wagmi'
+
+import NavigationBar from './views/navbar'
+import Profile from './views/profile'
+
+import Container from './elements/container'
+import StyleSheet from './styles/global'
+import Button from './elements/button'
+
+import themes from './styles/themes'
+import { client } from './config'
+
+const isMobileClient = () => window.innerWidth < 500
 
 function App() {
+  const [ mobile, setMobile ] = useState(isMobileClient())
+  const [ theme, setTheme ] = useState(themes.light)
+
+  const toggleTheme = () => {
+    const invertedTheme = theme === themes.light
+      ? themes.dark : themes.light
+
+    setTheme(invertedTheme)
+  }
+
   return (
     <WagmiConfig client={client}>
-      <Profile />
+      <ThemeProvider theme={{ ...theme, mobile }}>
+        <StyleSheet />
+        <NavigationBar
+          className='navigation-bar' onClick={toggleTheme}
+        />
+        <Container className='container-main'>
+          <Profile />
+        </Container>
+      </ThemeProvider>
     </WagmiConfig>
   );
 }
 
-export default App;
+export default App

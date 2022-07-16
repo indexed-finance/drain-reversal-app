@@ -155,7 +155,7 @@
             }
           ],
           "internalType": "struct RedemptionLens2.TokenAmounts",
-          "name": "defi5_amounts",
+          "name": "0xfa6de2697D59E88Ed7Fc4dFE5A33daC43565ea41",
           "type": "tuple"
         },
         {
@@ -192,7 +192,7 @@
             }
           ],
           "internalType": "struct RedemptionLens2.TokenAmounts",
-          "name": "cc10_amounts",
+          "name": "0x17aC188e09A7890a1844E5E65471fE8b0CcFadF3",
           "type": "tuple"
         },
         {
@@ -229,7 +229,7 @@
             }
           ],
           "internalType": "struct RedemptionLens2.TokenAmounts",
-          "name": "fff_amounts",
+          "name": "0xaBAfA52D3d5A2c18A4C1Ae24480D22B831fC0413",
           "type": "tuple"
         },
         {
@@ -266,7 +266,7 @@
             }
           ],
           "internalType": "struct RedemptionLens2.TokenAmounts",
-          "name": "defi5LP_amounts",
+          "name": "0x8dCBa0B75c1038c4BaBBdc0Ff3bD9a8f6979Dd13",
           "type": "tuple"
         },
         {
@@ -303,7 +303,7 @@
             }
           ],
           "internalType": "struct RedemptionLens2.TokenAmounts",
-          "name": "cc10LP_amounts",
+          "name": "0x2701eA55b8B4f0FE46C15a0F560e9cf0C430f833",
           "type": "tuple"
         },
         {
@@ -340,7 +340,7 @@
             }
           ],
           "internalType": "struct RedemptionLens2.TokenAmounts",
-          "name": "fffLP_amounts",
+          "name": "0x9A60F0A46C1485D4BDA7750AdB0dB1b17Aa48A33",
           "type": "tuple"
         }
       ],
