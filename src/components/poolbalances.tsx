@@ -130,7 +130,7 @@ function TableHeaders({ isMobile }: { isMobile: boolean }) {
 }
 
 export default function PoolBalances({ address, redeem }: PoolProps) {
-  const { data, isError, isLoading, error } = useRedeemableAmounts(address);
+  const { data } = useRedeemableAmounts(address);
   const theme = useTheme()
 
   if (data) {

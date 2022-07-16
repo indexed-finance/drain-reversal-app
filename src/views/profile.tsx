@@ -27,8 +27,8 @@ const assets: ProviderAssets = {
 }
 
 export default function Profile() {
-    const { address, connector, isConnected } = useAccount()
-    const { connect, connectors, error } = useConnect()
+    const { address, isConnected } = useAccount()
+    const { connect, connectors } = useConnect()
     const [ redeem, setRedeem ] = useState(false)
 
     const toggleRedeem = () => {

@@ -15,8 +15,8 @@ import { client } from './config'
 const isMobileClient = () => window.innerWidth < 500
 
 function App() {
-  const [ mobile, setMobile ] = useState(isMobileClient())
   const [ theme, setTheme ] = useState(themes.light)
+  const [ mobile, ] = useState(isMobileClient())
 
   const toggleTheme = () => {
     const invertedTheme = theme === themes.light
