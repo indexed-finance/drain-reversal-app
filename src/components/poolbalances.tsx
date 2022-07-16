@@ -60,11 +60,11 @@ function PoolTokenAmounts({
       return isPair && allowance.data && allowance.data.lt(totalBalance)
     }, [isPair, allowance, totalBalance])
 
-    if (unstake.isError) {
-      console.log(unstake.error)
+    if (!!account && unstake.isError) {
+      alert(unstake.error)
     }
 
-    if (redeem.isError) {
+    if (!!account && redeem.isError) {
       console.log(redeem.error)
     }
 

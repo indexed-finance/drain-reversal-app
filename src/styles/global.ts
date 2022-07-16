@@ -6,6 +6,7 @@ import aux_mono from '../assets/fonts/aux-mono.otf'
 
 import stylesheet_desktop from './rwd/desktop'
 import stylesheet_mobile from './rwd/mobile'
+import stylesheet_laptop from './rwd/laptop'
 import { devices }  from './rwd/breakpoints'
 
 export default createGlobalStyle`
@@ -51,9 +52,11 @@ export default createGlobalStyle`
     }
 
     & .navigation-bar {
-      width: 100vw;
+      width: 101vw;
       height: 5em;
       z-index: 5;
+      padding-left: 2em;
+      margin-left: -1em;
     }
 
     & .container-main {
@@ -75,6 +78,10 @@ export default createGlobalStyle`
     }
 
     @media ${devices.laptop} {
+      ${stylesheet_laptop}
+    }
+
+    @media ${devices.desktop} {
       ${stylesheet_desktop}
     }
   `}

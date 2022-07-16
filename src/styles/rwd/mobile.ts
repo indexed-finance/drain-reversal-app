@@ -9,15 +9,16 @@ export default `
   }
 
   & .navigation-bar {
-    font-size: .8em;
+    font-size: .9em;
 
     & button {
-      margin: .125em 1.5em 0em 0em;
+      margin: .5em 3em 0em 0em;
+      font-size: 1em;
     }
   }
 
   & .container-main {
-    margin: calc(30vh - 3.75em) 5%;
+    margin: calc(30vh - 3.25em) 5%;
     padding: 3em 1.5em;
   }
 
@@ -31,14 +32,14 @@ export default `
     }
   }
 
-  .wallet-btn {
+  & .wallet-btn {
     margin-left: 20px;
     margin-top: -125px;
     border-radius: 100px;
     font-size: 1em;
   }
 
-  .table-column {
+  & .table-column {
     border-top-style: solid;
     border-top-width: 3px;
     padding: 1em 0em 2em 0em;
@@ -54,7 +55,7 @@ export default `
     right: 5%;
     left: 5%;
     margin: 2%;
-    top: 10%;
+    top: 11%;
   }
 
 `
